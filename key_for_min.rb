@@ -5,14 +5,14 @@ def key_for_min_value(name_hash)
   if name_hash.empty?
     nil
   else
-    min_value = 1000
-    min_key = " "
+    min_key = nil
+    min_value = nil
     name_hash.collect do |key,value|
-     if min_value > value
-       min_value = value
-       min_key = key
-     end
-   end
-   min_key
- end
+      if min_value == nil || value < min_value
+        min_key = key
+        min_value = value
+      end
+    end
+    min_key
+  end
 end
